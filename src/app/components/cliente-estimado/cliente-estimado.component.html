@@ -1,0 +1,73 @@
+<h1>Lista de clientes</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">      
+      <table class="table table-hover table-border table-sm">
+        <thead>
+          <tr>
+            <th scope="col">Id de cliente</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Fecha de Nacimiento</th>
+            <th scope="col">Correo</th>
+            <th scope="col">Telefono</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cli of clientes">
+            <td>{{cli.id_cliente}}</td>
+            <td>{{cli.nombre}}</td>            
+            <td>{{cli.fecha_nacimiento}}</td>
+            <td>{{cli.correo}}</td>
+            <td>{{cli.telefono}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<h3>Consultar ultima venta y estimado de proxima venta de un cliente</h3>
+<div class="container">
+    
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Ingrese id del cliente" aria-label="Id de cliente" aria-describedby="basic-addon2" #textId>
+    <div class="input-group-append">
+      <button (click)="getCliente(textId.value)" class="btn btn-outline-secondary" type="button">Consultar Cliente</button>
+    </div>
+  </div>
+
+    <ng-container *ngIf="notFound">
+        El cliente no existe
+    </ng-container>
+
+    <ng-container *ngIf="cliente">
+        <div class="container">
+            <div class="row">
+              <div class="col-12">      
+                <table class="table table-hover table-border table-sm">
+                  <thead>
+                    <tr>
+                      <th scope="col">Id de ultima venta</th>
+                      <th scope="col">Id de cliente</th>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Fecha ultima venta</th>
+                      <th scope="col">Fecha estimado proxima venta</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{{cliente[0].id_venta}}</td>
+                      <td>{{cliente[0].id_cliente}}</td>
+                      <td>{{cliente[0].nombre}}</td>
+                      <td>{{cliente[0].ultima_fecha}}</td>
+                      <td>{{cliente[0].estimado_fecha}}</td>
+                    </tr>    
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+    </ng-container>
+
+</div>

@@ -1,0 +1,28 @@
+<h3>Lista de clientes quienes cumplen un rango de edad y tuvieron compras en una determinada fecha</h3>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">      
+      <table class="table table-hover table-border table-sm">
+        <thead>
+          <tr>
+            <th scope="col">Id de cliente</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Fecha nacimiento</th>
+            <th scope="col">Correo</th>
+            <th scope="col">Teléfono</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cliente of clientes">            
+            <td>{{cliente.id_cliente}}</td>
+            <td>{{cliente.nombre}}</td>
+            <td>{{cliente.fecha_nacimiento}}</td>
+            <td>{{cliente.correo}}</td>
+            <td>{{cliente.telefono}}</td>
+          </tr>    
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

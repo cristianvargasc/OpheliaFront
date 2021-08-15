@@ -1,0 +1,26 @@
+<h1>Lista de productos que llegaron al minimo permitido en el inventario</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">      
+      <table class="table table-hover table-border table-sm">
+        <thead>
+          <tr>
+            <th scope="col">id_producto</th>
+            <th scope="col">nombre</th>
+            <th scope="col">precio</th>
+            <th scope="col">cantidad</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let producto of productos">            
+            <td>{{producto.id_producto}}</td>
+            <td>{{producto.nombre}}</td>
+            <td>{{producto.precio | currency:'$ ':'symbol':'3.0'}}</td>
+            <td>{{producto.cantidad}}</td>
+          </tr>    
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
